@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>#outter
+{
+margin-bottom:20px;
+margin-top:10px;
+width:50%;
+padding:15px;
+border-radius:5px;
+border:1px solid #7ac9b7
+}
+input[type=text]{
+margin-bottom:20px;
+margin-top:10px;
+width:20%;
+padding:15px;
+border-radius:5px;
+border:1px solid #7ac9b7
+}
+input[type=button]{
+margin-bottom:20px;
+width:10%;
+padding:15px;
+border-radius:5px;
+border: 3px solid #000;
+background-color: grey;
+font-size: 40px;
+}
+ 
+input[type=text]:focus,textarea:focus{
+border:3px solid #000;
+}
+input[type=button]:hover { background-color: #99000D; }
+</style>
+</head>
+<body>
+<div id="outter">
+<script language="javascript" type="text/javascript">
+function multiply(){
+var a=parseInt(document.getElementById("1").value);
+var b=parseInt(document.getElementById("2").value);
+var c=a*b;
+document.getElementById("3").value=c;
+}
+</script>
+<script language="javascript" type="text/javascript">
+function addition()
+{
+	var a=parseInt(document.getElementById("1").value);
+	var b=parseInt(document.getElementById("2").value);
+	var c=a+b;
+document.getElementById("3").value=c;
+}
+</script>
+<script language="javascript" type="text/javascript">
+function division()
+{
+var a=parseInt(document.getElementById("1").value);
+var b=parseInt(document.getElementById("2").value);
+var c=a/b;
+document.getElementById("3").value=c;
+}
+</script>
+<script language="javascript" type="text/javascript">
+function difference()
+{
+var a=parseInt(document.getElementById("1").value);
+var b=parseInt(document.getElementById("2").value);
+if(a>b)
+{var c=a-b;}
+else{var c=b-a;}
+document.getElementById("3").value=c;
+}
+</script>
+
+<script language="javascript" type="text/javascript">
+function memory() { var ele = document.getElementById("mem"); if(ele.style.display == "block") { ele.style.display = "none"; } else { ele.style.display = "block"; } } 
+</script>
+
+<script language="javascript" type="text/javascript">
+ function refresh_me()
+{
+var elements = document.getElementsByTagName(“input”);
+for (var i=0; i < elements.length; i++)
+ { if (elements[i].type == "text") { elements[i].value = ""; } }
+ }
+</script>
+
+<script language="javascript" type="text/javascript">
+ function change(a)
+ { if(document.getElementById("total").value != "") 
+{ refresh_me() } 
+document.getElementById("cache2").value += a document.getElementById("disp").value += a }
+</script>
+
+<script language="javascript" type="text/javascript">
+ function out()
+{ num = document.getElementById("cache2").value total = eval(num); document.getElementById("total").value = total document.getElementById("mem").value += num+"\n" }
+</script>
+
+<form name="my_cal">
+Display<input style="font-weight:bold" type="text" id="disp" name="disp" disabled>
+Result<input style="font-weight:bold" type="text" id="total" name="total" disabled><br><textarea style="display:none" rows="4" cols="50" id="mem" disabled></textarea>
+
+<p><input type="button" value="*" onclick="change(this.value)">
+<input type="button" value="+" onclick="change(this.value)">
+<input type="button" value="/" onclick="change(this.value)">
+<input type="button" value="-" onclick="change(this.value)">
+<input type="button" value="=" onclick="out()">
+<input type="button" value="C" onclick="refresh_me()"><br>
+<input type="button" value="1" onclick="change(this.value)">
+<input type="button" value="2" onclick="change(this.value)">
+<input type="button" value="3" onclick="change(this.value)">
+<input type="button" value="4" onclick="change(this.value)">
+<input type="button" value="5" onclick="change(this.value)">
+<input type="button" value="." onclick="change(this.value)">
+<br>
+<input type="button" value="6" onclick="change(this.value)">
+<input type="button" value="7" onclick="change(this.value)">
+<input type="button" value="8" onclick="change(this.value)">
+<input type="button" value="9" onclick="change(this.value)">
+<input type="button" value="0" onclick="change(this.value)">
+<input type="button" value="M" onclick="memory()">
+</form>
+</div>
+</body>
+</html>
