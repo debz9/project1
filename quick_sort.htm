@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+table { 
+    display: table;
+    border:2px solid black;
+    width:50%
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: black;
+    backgroung-color:#4CAF50;
+}
+</style>
+	<h1>QUICKSORT using JAVASCRIPT</h1>
+</head>
+<body>
+<p>The Given Array :</p>
+<table ><tr><td>9</td><td>1</td><td>5</td><td>6</td><td>3</td></tr></table>
+<script>
+var gArray=[9,1,5,6,3];
+console.log("Original array:"+gArray);
+
+	function quick_sort(given_Array)
+	{
+		if(given_Array.length<=1){return given_Array;}
+		else
+		{
+		var left=[];
+		var right=[];
+		var newArray=[];
+		var pivot=given_Array.pop();
+		var length=given_Array.length;
+		
+		for(var i=0;i<length;i++)
+		{
+			if(given_Array[i]<=pivot){
+			left.push(given_Array[i]);
+		}
+		else{
+			right.push(given_Array[i]);
+		}
+		}
+		return newArray.concat(quick_sort(left),pivot,quick_sort(right));
+		}
+	}
+
+var rArray=quick_sort(gArray);
+console.log("Array after sorting:");
+document.write(rArray);
+</script>
+</body>
+</html>
